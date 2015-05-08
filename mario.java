@@ -2,7 +2,7 @@
  * Write a description of class mario here.
  * 
  * @author Vinnis L. Bryant
- * @version 2
+ * @version v.02
  */
 
 import java.util.Scanner;
