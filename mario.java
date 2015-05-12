@@ -1,6 +1,7 @@
 /**
  * Created by omx on 5/10/2015.
  */
+import pyramids.Pyramid;
 import pyramids.pyramidToFile;
 import pyramids.pyramidToScreen;
 
@@ -10,23 +11,11 @@ public class mario{
 
     public static void main(String[] args) {
 
-        String outputType = getOutputType();
-
-        switch (outputType) {
-            case "S":
-            case "s":
-                pyramidToScreen s_pyramid = new pyramidToScreen();
-                s_pyramid.build();
-                break;
-            case "F":
-            case "f":
-                pyramidToFile f_pyramid = new pyramidToFile();
-                f_pyramid.build();
-                break;
-            default:
-                break;
-
-        }
+        pyramidFactory pFactory = new pyramidFactory();
+        Pyramid pyramid = null;
+        String type = getOutputType();
+        pyramid = pFactory.makePyramid(type);
+        pyramid.build();
     }
 
     /*****************************************

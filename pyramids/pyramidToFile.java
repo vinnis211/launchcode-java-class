@@ -1,7 +1,6 @@
 package pyramids;
 
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by omx on 5/10/2015.
  */
-public class pyramidToFile implements printablePyramid {
+public class pyramidToFile extends Pyramid {
     int height;
 
 

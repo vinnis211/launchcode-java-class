@@ -5,11 +5,12 @@ import java.util.Scanner;
 /**
  * Created by omx on 5/10/2015.
  */
-public class pyramidToScreen implements printablePyramid{
+public class pyramidToScreen extends Pyramid {
     int height;
 
     public pyramidToScreen() {
         height = getHeight();
+
     }
 
     public int getHeight(){
