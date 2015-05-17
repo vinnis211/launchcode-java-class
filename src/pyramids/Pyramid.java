@@ -36,7 +36,7 @@ public class Pyramid {
         int spaceLooper;
         int sharpLooper;
         String row = "";
-        System.out.print(row);
+        pyramidString.append(row);
 
         for(i = 2; i <= maxcol; i++)
 
