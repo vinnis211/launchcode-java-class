@@ -1,21 +1,31 @@
-/**
+package src; /**
  * Created by omx on 5/10/2015.
  */
-import pyramids.Pyramid;
-import pyramids.pyramidToFile;
-import pyramids.pyramidToScreen;
+
+import src.pyramids.PyramidToFile;
+import src.pyramids.PyramidToScreen;
 
 import java.util.Scanner;
 
-public class mario{
+public class Mario {
 
     public static void main(String[] args) {
 
-        pyramidFactory pFactory = new pyramidFactory();
-        Pyramid pyramid = null;
-        String type = getOutputType();
-        pyramid = pFactory.makePyramid(type);
-        pyramid.build();
+        String outputType = getOutputType();
+
+        switch (outputType) {
+            case "S":
+            case "s":
+                PyramidToScreen s_pyramid = new PyramidToScreen();
+                break;
+            case "F":
+            case "f":
+                PyramidToFile f_pyramid = new PyramidToFile();
+                break;
+            default:
+                break;
+
+        }
     }
 
     /*****************************************

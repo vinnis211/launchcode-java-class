@@ -3,14 +3,14 @@ package pyramids;
 import java.util.Scanner;
 
 /**
- * Created by omx on 5/10/2015.
+ * Created by omx on 5/16/2015.
  */
-public class pyramidToScreen extends Pyramid {
+public class Pyramid {
+
     int height;
 
-    public pyramidToScreen() {
+    public Pyramid() {
         height = getHeight();
-
     }
 
     public int getHeight(){
@@ -20,7 +20,7 @@ public class pyramidToScreen extends Pyramid {
         int inputHeight;
         do
         {
-            System.out.print("Enter Pyramid Height: ");
+            System.out.print("Enter Pyramid Height:  ");
             inputHeight = in.nextInt();
         }  while (inputHeight < 0 || inputHeight > 23);
 
@@ -28,7 +28,8 @@ public class pyramidToScreen extends Pyramid {
 
     }
 
-    public void build(){
+    public String build(){
+        StringBuilder pyramidString = new StringBuilder();
         int maxcol = height + 1;
         int i;
         int s = maxcol;
@@ -44,7 +45,7 @@ public class pyramidToScreen extends Pyramid {
 
             while (spaceLooper > 0)
             {
-                System.out.print(" ");
+                pyramidString.append(" ");
                 spaceLooper--;
 
             }
@@ -55,14 +56,16 @@ public class pyramidToScreen extends Pyramid {
             while (sharpLooper > 0)
             {
 
-                System.out.print("#");
+                pyramidString.append("#");
                 sharpLooper--;
 
             }
 
-            System.out.print("\n");
+            pyramidString.append("\n");
 
         }
+        String p = pyramidString.toString();
+        return p;
     }
 
 }
