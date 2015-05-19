@@ -9,13 +9,15 @@ import static org.junit.Assert.assertEquals;
 public class CoinCalculatorTest extends TestCase {
 
     @Test
-    public void testGetValidChange() throws Exception {
+    public void testEuroCoins() throws Exception {
 
-            CoinCalculator coinCalculator = new CoinCalculator();
-            int changeTest = coinCalculator.getValidChange();
-            assertEquals(0,changeTest);
-        }
+        CoinCalculator coinCalculator = new CoinCalculator();
+        int coinCount = coinCalculator.getCoinCount(3);
+        assertEquals(4,coinCount);
+    }
 
     }
+
+
 
 

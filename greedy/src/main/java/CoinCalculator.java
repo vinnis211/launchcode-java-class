@@ -43,77 +43,128 @@ public class CoinCalculator {
 
     }
 
-    /***********************************************
-     * Calculate coin count by first determining   *
-     * whether the input amount is divisable by 25.*
-     * Then a dime and finally a nickel. Then add  *
-     * the final remainder to the total coin count *
-     ***********************************************/
+    /***************************************************
+     * Calculate Euro coin count by determining        *
+     * whether the input amount is divisable by the    *
+     * different Euro coin denomination.               *
+     * The denominations are 2 euros, 1 euros, 50 cent *
+     * 20 cent, 10 cent, 5 cent, 2 cent and 1 cent     *
+     ***************************************************/
     int getCoinCount(int change)
     {
-        int dollar = 100;
-        int quarter = 25;
-        int dime = 10;
-        int nickel = 5;
-        int dollarCount = 0;
-        int nickelCount = 0;
-        int dimeCount = 0;
-        int quarterCount = 0;
+        int twoEuros = 200;
+        int oneEuros = 100;
+        int fiftyCentEuro = 50;
+        int twentyCentEuro = 20;
+        int tenCentEuro = 10;
+        int fiveCentEuro = 5;
+        int twoCentEuro = 2;
+        int oneCentEuro = 1;
+        int twoEurosCount = 0;
+        int oneEurosCount = 0;
+        int fiftyCentCount = 0;
+        int twentyCentCount = 0;
+        int tenCentCount = 0;
+        int fiveCentCount = 0;
+        int twoCentCount = 0;
+        int oneCentCount = 0;
         int totCoins = 0;
         int remainder = 0;
 
-        if (change >= dollar)
+        if (change >= 200)
         {
-            dollarCount = change / dollar;
-            totCoins += dollarCount;
-            remainder = change % dollar;
+            twoEurosCount = change / twoEuros;
+            totCoins += twoEurosCount;
+            remainder = change % twoEuros;
         }
 
 
-        if (dollarCount > 0 && remainder >= quarter)
+        if (twoEurosCount > 0 && remainder >= oneEuros)
         {
-            quarterCount = remainder / quarter;
-            totCoins += quarterCount;
-            remainder = remainder % quarter;
+            oneEurosCount = remainder / oneEuros;
+            totCoins += oneEurosCount;
+            remainder = remainder % oneEuros;
         }
-        else
-        if (dollarCount == 0 && change >= quarter)
-        {
-            quarterCount = change / quarter;
-            totCoins += quarterCount;
-            remainder = change % quarter;
-        }
-
-        if (quarterCount > 0 && remainder >= dime)
-        {
-            dimeCount = remainder / dime;
-            totCoins += dimeCount;
-            remainder = remainder % dime;
-        }
-        else
-        if (quarterCount == 0 && change >= dime)
-        {
-            dimeCount = change / dime;
-            totCoins += dimeCount;
-            remainder = change % dime;
+        else {
+            if (twoEurosCount == 0 && change >= oneEuros) {
+                oneEurosCount = change / oneEuros;
+                totCoins += oneEurosCount;
+                remainder = change % oneEuros;
+            }
         }
 
-
-        if ((dimeCount > 0 || quarterCount > 0) && remainder >= nickel)
+        if ((oneEurosCount > 0 || twoEurosCount > 0) && remainder >= fiftyCentEuro)
         {
-            nickelCount = remainder / nickel;
-            totCoins += nickelCount;
-            remainder = remainder % nickel;
+            fiftyCentCount = remainder / fiftyCentEuro;
+            totCoins += fiftyCentCount;
+            remainder = remainder % fiftyCentEuro;
         }
-        else
-        if ((dimeCount == 0 && quarterCount == 0) && change >= nickel)
-        {
-            nickelCount = change / nickel;
-            totCoins += nickelCount;
-            remainder = change % nickel;
+        else {
+            if ((oneEurosCount == 0 && twoEurosCount == 0 ) && change >= fiftyCentEuro){
+                fiftyCentCount = change / fiftyCentEuro;
+                totCoins += fiftyCentCount;
+                remainder = change % fiftyCentEuro;
+            }
         }
 
-        if (change < 5)
+
+        if (((fiftyCentCount > 0) || (oneEurosCount > 0) || (twoEurosCount > 0)) && (remainder >= twentyCentEuro))
+        {
+            twentyCentCount = remainder / twentyCentEuro;
+            totCoins += twentyCentCount;
+            remainder = remainder % twentyCentEuro;
+        }
+        else {
+            if (((fiftyCentCount == 0) && (oneEurosCount == 0) && (twoEurosCount == 0)) && (change >= twentyCentEuro)){
+                twentyCentCount = change / twentyCentEuro;
+                totCoins += twentyCentCount;
+                remainder = change % twentyCentEuro;
+            }
+        }
+
+        if (((twentyCentCount > 0) || (fiftyCentCount > 0) || (oneEurosCount > 0) || (twoEurosCount > 7)) && (remainder >= tenCentEuro))
+        {
+            tenCentCount = remainder / tenCentEuro;
+            totCoins += tenCentCount;
+            remainder = remainder % tenCentEuro;
+        }
+        else {
+            if (((twentyCentCount == 0) && (fiftyCentCount == 0) &&  (oneEurosCount == 0) && (twoEurosCount == 0)) && (change >= tenCentEuro)){
+                tenCentCount = change / tenCentEuro;
+                totCoins += tenCentCount;
+                remainder = change % tenCentEuro;
+            }
+        }
+
+        if (((tenCentCount > 0) || (twentyCentCount > 0) || (fiftyCentCount > 0) || (oneEurosCount > 0) || (twoEurosCount > 7)) && (remainder >= fiveCentEuro))
+        {
+            fiveCentCount = remainder / fiveCentEuro;
+            totCoins += fiveCentCount;
+            remainder = remainder % fiveCentEuro;
+        }
+        else {
+            if (((tenCentCount == 0) && (twentyCentCount == 0) && (fiftyCentCount == 0) &&  (oneEurosCount == 0) && (twoEurosCount == 0)) && (change >= fiveCentEuro)){
+                fiveCentCount = change / fiveCentEuro;
+                totCoins += fiveCentCount;
+                remainder = change % fiveCentEuro;
+            }
+        }
+
+        if (((fiveCentCount > 0) || (tenCentCount > 0) || (twentyCentCount > 0) || (fiftyCentCount > 0) || (oneEurosCount > 0) || (twoEurosCount > 7)) && (remainder >= twoCentEuro))
+        {
+            twoCentCount = remainder / twoCentEuro;
+            totCoins += twoCentCount;
+            remainder = remainder % twoCentEuro;
+        }
+        else {
+            if (((fiveCentCount == 0) && (tenCentCount == 0) && (twentyCentCount == 0) && (fiftyCentCount == 0) &&  (oneEurosCount == 0) && (twoEurosCount == 0)) && (change >= twoCentEuro)){
+                twoCentCount = change / twoCentEuro;
+                totCoins += twoCentCount;
+                remainder = change % twoCentEuro;
+            }
+        }
+
+        if (change < 2)
             totCoins = change;
         else
             totCoins += remainder;
