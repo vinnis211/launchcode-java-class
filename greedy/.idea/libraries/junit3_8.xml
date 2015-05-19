@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="junit3.8">
+    <ANNOTATIONS>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" />
+    </SOURCES>
+    <jarDirectory url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" recursive="false" />
+    <jarDirectory url="jar://$APPLICATION_HOME_DIR$/plugins/testng/lib/testng.jar!/junit3.8.1" recursive="false" type="SOURCES" />
+  </library>
+</component>
