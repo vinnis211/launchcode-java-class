@@ -12,7 +12,7 @@ public class CoinCalculator {
     /***********************************************
      * Request a valid change amount from user.    *
      * A valid amount float or interger value that *
-     * is greater than 0.                          *
+     * is greater than                            *
      ***********************************************/
     public int getValidChange() {
 
