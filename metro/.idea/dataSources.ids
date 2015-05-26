@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="SQLite - metro" uuid="77bbd694-0488-48c7-82da-aee0415f2406">
+    <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="metrolink_stops" schema="" catalog="" type="VIEW">
+      <column name="trip_headsign" sqlType="CHAR(20)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_name" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_color" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_type" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_sequence" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="arrival_time" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="departure_time" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="routes" schema="" catalog="" type="TABLE">
+      <column name="route_long_name" sqlType="CHAR(200)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_type" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="agency_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_color" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_short_name" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="route_id"/>
+      <exported-key name="#FAKE_trips_1" table="trips" schema="" catalog="" columns="route_id"/>
+    </table>
+    <table name="stop_times" schema="" catalog="" type="TABLE">
+      <column name="trip_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="arrival_time" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="departure_time" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_sequence" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_headsign" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="pickup_type" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="drop_off_type" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="shape_dist_traveled" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <foreign-key name="#FAKE_stop_times_1" columns="trip_id" ref-table="trips" ref-schema="" ref-catalog="" ref-columns="trip_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_stop_times_2" columns="stop_id" ref-table="stops" ref-schema="" ref-catalog="" ref-columns="stop_id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
+    <table name="stops" schema="" catalog="" type="TABLE">
+      <column name="stop_lat" sqlType="DECIMAL(9,6)" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="zone_id" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_lon" sqlType="DECIMAL(9,6)" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="stop_id" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_desc" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="stop_name" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="location_type" sqlType="CHAR(30)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="stop_id"/>
+      <exported-key name="#FAKE_stop_times_2" table="stop_times" schema="" catalog="" columns="stop_id"/>
+    </table>
+    <table name="trips" schema="" catalog="" type="TABLE">
+      <column name="block_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="route_id" sqlType="CHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="direction_id" sqlType="CHAR(2)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="trip_headsign" sqlType="CHAR(20)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="shape_id" sqlType="CHAR(20)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="service_id" sqlType="CHAR(20)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="trip_id" sqlType="CHAR(20)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="trip_id"/>
+      <foreign-key name="#FAKE_trips_1" columns="route_id" ref-table="routes" ref-schema="" ref-catalog="" ref-columns="route_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_stop_times_1" table="stop_times" schema="" catalog="" columns="trip_id"/>
+    </table>
+  </data-source>
+</component>

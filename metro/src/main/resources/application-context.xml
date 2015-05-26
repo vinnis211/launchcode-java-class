@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+
+
+    <bean id="screenOutput" class="main.java.com.vinnis.launchcode.ScreenOutput"/>
+
+    <bean id="metrolinkCommandLineApp" class="main.java.com.vinnis.launchcode.MetrolinkCommandLineApp">
+        <property name="appOutput" ref="screenOutput"/>
+        <property name="metrolinkDao" ref="metrolinkDao"/>
+    </bean>
+
+
+    <bean id="metrolinkDao" class="main.java.com.vinnis.launchcode.dao.SqliteJDBCDao">
+        <property name="appOutput" ref="screenOutput" />
+    </bean>
+
+
+
+
+</beans>
